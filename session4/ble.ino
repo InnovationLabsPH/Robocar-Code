@@ -5,9 +5,9 @@ String G_Bluetooth_value;
 volatile int BLE_Change_SPEED;
 int maxSpeed = 60;
 int turnSpeed = 50;
-int speedStep = 10; // default step
+int speedStep = 10; 
 
-String lastMovementCommand = "S"; // Change to String for multi-char commands
+String lastMovementCommand = "S"; 
 
 float mapfloat(float x, float in_min, float in_max, float out_min, float out_max)
 {
@@ -37,24 +37,24 @@ void executeMovement(String command, float value) {
     analogWrite(6, (turnSpeed / 10) * 11.25);
   } else if (command == "FL") {
     digitalWrite(2, HIGH);
-    analogWrite(5, (BLE_Change_SPEED / 10) * 11.25); // left slower
+    analogWrite(5, (BLE_Change_SPEED / 10) * 11.25); 
     digitalWrite(4, LOW);
-    analogWrite(6, (BLE_Change_SPEED / 10) * 22.5); // right normal
+    analogWrite(6, (BLE_Change_SPEED / 10) * 22.5); 
   } else if (command == "FR") {
     digitalWrite(2, HIGH);
-    analogWrite(5, (BLE_Change_SPEED / 10) * 22.5); // left normal
+    analogWrite(5, (BLE_Change_SPEED / 10) * 22.5); 
     digitalWrite(4, LOW);
-    analogWrite(6, (BLE_Change_SPEED / 10) * 11.25); // right slower
+    analogWrite(6, (BLE_Change_SPEED / 10) * 11.25); 
   } else if (command == "BL") {
     digitalWrite(2, LOW);
-    analogWrite(5, (BLE_Change_SPEED / 10) * 11.25); // left slower
+    analogWrite(5, (BLE_Change_SPEED / 10) * 11.25); 
     digitalWrite(4, HIGH);
-    analogWrite(6, (BLE_Change_SPEED / 10) * 22.5); // right normal
+    analogWrite(6, (BLE_Change_SPEED / 10) * 22.5); 
   } else if (command == "BR") {
     digitalWrite(2, LOW);
-    analogWrite(5, (BLE_Change_SPEED / 10) * 22.5); // left normal
+    analogWrite(5, (BLE_Change_SPEED / 10) * 22.5); 
     digitalWrite(4, HIGH);
-    analogWrite(6, (BLE_Change_SPEED / 10) * 11.25); // right slower
+    analogWrite(6, (BLE_Change_SPEED / 10) * 11.25); 
   } else if (command == "S") {
     digitalWrite(2, LOW);
     analogWrite(5, 0);
