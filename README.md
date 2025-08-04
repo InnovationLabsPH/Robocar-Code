@@ -84,6 +84,7 @@ Most LAFVIN-branded Arduino boards use the **CH340** USB-to-serial converter. To
    - It will appear as something like `COM4` or similar in Windows
 
    ![CH340 Chip on Arduino](images/arduino_port.png)
+   
    (in this example image it's different, but most of the case it will start with `COM`)
 
 > If the port doesn't appear, recheck the CH340 driver installation and try a different USB cable (ensure it supports data).
