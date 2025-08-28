@@ -3,6 +3,7 @@
 volatile int D_mix;
 volatile int D_mid;
 volatile int D_max;
+int speed = 60; 
 
 Servo myservo;
 float checkdistance() {
@@ -28,50 +29,68 @@ void Ultrasonic_Follow() {
   Front_Distance = checkdistance();
   if (Front_Distance < 5 && (Left_IR_Value != Infrared_Trigger_Flag && Right_IR_Value != Infrared_Trigger_Flag)) {
     digitalWrite(2,LOW);
-    analogWrite(5,(2 * 25.5));
+    analogWrite(5, speed
+  );
     digitalWrite(4,HIGH);
-    analogWrite(6,(2 * 25.5));
+    analogWrite(6, speed
+  );
 
   } else if (Front_Distance < 5 && (Left_IR_Value == Infrared_Trigger_Flag && Right_IR_Value != Infrared_Trigger_Flag)) {
     digitalWrite(2,LOW);
-    analogWrite(5,(3 * 25.5));
+    analogWrite(5, speed
+     + 30);
     digitalWrite(4,HIGH);
-    analogWrite(6,(0.056 * (3 * 255)));
+    analogWrite(6, (int)(0.056 * (speed
+     + 155)));
   } else if (Front_Distance < 5 && (Left_IR_Value != Infrared_Trigger_Flag && Right_IR_Value == Infrared_Trigger_Flag)) {
     digitalWrite(2,LOW);
-    analogWrite(5,(0.056 * (3 * 255)));
+    analogWrite(5, (int)(0.056 * (speed
+     + 155)));
     digitalWrite(4,HIGH);
-    analogWrite(6,(3 * 25.5));
+    analogWrite(6, speed
+     + 30);
   } else if (Front_Distance < 5 && (Left_IR_Value == Infrared_Trigger_Flag && Right_IR_Value == Infrared_Trigger_Flag)) {
     digitalWrite(2,LOW);
-    analogWrite(5,(2 * 25.5));
+    analogWrite(5, speed
+  );
     digitalWrite(4,HIGH);
-    analogWrite(6,(2 * 25.5));
+    analogWrite(6, speed
+  );
   } else if (Front_Distance > 10 && (Left_IR_Value != Infrared_Trigger_Flag && Right_IR_Value != Infrared_Trigger_Flag)) {
     digitalWrite(2,HIGH);
-    analogWrite(5,(3 * 25.5));
+    analogWrite(5, speed
+     + 30);
     digitalWrite(4,LOW);
-    analogWrite(6,(3 * 25.5));
+    analogWrite(6, speed
+     + 30);
   } else if (Front_Distance > 10 && (Left_IR_Value == Infrared_Trigger_Flag && Right_IR_Value != Infrared_Trigger_Flag)) {
     digitalWrite(2,LOW);
-    analogWrite(5,(3 * 25.5));
+    analogWrite(5, speed
+     + 30);
     digitalWrite(4,LOW);
-    analogWrite(6,(3 * 25.5));
+    analogWrite(6, speed
+     + 30);
   } else if (Front_Distance > 10 && (Left_IR_Value != Infrared_Trigger_Flag && Right_IR_Value == Infrared_Trigger_Flag)) {
     digitalWrite(2,HIGH);
-    analogWrite(5,(3 * 25.5));
+    analogWrite(5, speed
+     + 30);
     digitalWrite(4,HIGH);
-    analogWrite(6,(3 * 25.5));
+    analogWrite(6, speed
+     + 30);
   } else if ((5 <= Front_Distance && Front_Distance <= 10) && (Left_IR_Value != Infrared_Trigger_Flag && Right_IR_Value == Infrared_Trigger_Flag)) {
     digitalWrite(2,HIGH);
-    analogWrite(5,(3 * 25.5));
+    analogWrite(5, speed
+     + 30);
     digitalWrite(4,LOW);
-    analogWrite(6,(0.056 * (3 * 25.5)));
+    analogWrite(6, (int)(0.056 * (speed
+     + 30)));
   } else if ((5 <= Front_Distance && Front_Distance <= 10) && (Left_IR_Value == Infrared_Trigger_Flag && Right_IR_Value != Infrared_Trigger_Flag)) {
     digitalWrite(2,HIGH);
-    analogWrite(5,(0.056 * (3 * 25.5)));
+    analogWrite(5, (int)(0.056 * (speed
+     + 30)));
     digitalWrite(4,LOW);
-    analogWrite(6,(3 * 25.5));
+    analogWrite(6, speed
+     + 30);
   } else if ((5 <= Front_Distance && Front_Distance <= 10) && (Left_IR_Value != Infrared_Trigger_Flag && Right_IR_Value != Infrared_Trigger_Flag)) {
     digitalWrite(2,LOW);
     analogWrite(5,0);

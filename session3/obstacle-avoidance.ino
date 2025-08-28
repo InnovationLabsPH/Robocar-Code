@@ -8,6 +8,7 @@ volatile int Left_Distance;
 volatile int Right_Distance;
 volatile int Right_IR_Value;
 volatile int Left_IR_Value;
+float speed_multiplier = 22.5;
 
 Servo myservo;
 float checkdistance() {
@@ -43,9 +44,9 @@ void Ultrasonic_obstacle_avoidance() {
     analogWrite(6,0);
     if (Front_Distance <= D_mix || Left_IR_Value == 0 && Right_IR_Value == 0) {
       digitalWrite(2,LOW);
-      analogWrite(5,(4.5 * 22.5));
+      analogWrite(5,(4.5 * speed_multiplier));
       digitalWrite(4,HIGH);
-      analogWrite(6,(4.5 * 22.5));
+      analogWrite(6,(4.5 * speed_multiplier));
       delay(300);
       digitalWrite(2,LOW);
       analogWrite(5,0);
@@ -57,16 +58,16 @@ void Ultrasonic_obstacle_avoidance() {
     if ((D_mix < Left_Distance && Left_Distance < D_max) && (D_mix < Right_Distance && Right_Distance < D_max)) {
       if (Right_Distance > Left_Distance) {
         digitalWrite(2,HIGH);
-        analogWrite(5,(9 * 22.5));
+        analogWrite(5,(9 * speed_multiplier));
         digitalWrite(4,HIGH);
-        analogWrite(6,(9 * 22.5));
+        analogWrite(6,(9 * speed_multiplier));
         delay(150);
 
       } else {
         digitalWrite(2,LOW);
-        analogWrite(5,(9 * 22.5));
+        analogWrite(5,(9 * speed_multiplier));
         digitalWrite(4,LOW);
-        analogWrite(6,(9 * 22.5));
+        analogWrite(6,(9 * speed_multiplier));
         delay(150);
 
       }
@@ -74,23 +75,23 @@ void Ultrasonic_obstacle_avoidance() {
     } else if (D_mix < Left_Distance && Left_Distance < D_max || D_mix < Right_Distance && Right_Distance < D_max) {
       if (D_mix < Left_Distance && Left_Distance < D_max) {
         digitalWrite(2,LOW);
-        analogWrite(5,(7 * 22.5));
+        analogWrite(5,(7 * speed_multiplier));
         digitalWrite(4,LOW);
-        analogWrite(6,(7 * 22.5));
+        analogWrite(6,(7 * speed_multiplier));
         delay(150);
 
       } else if (D_mix < Right_Distance && Right_Distance < D_max) {
         digitalWrite(2,HIGH);
-        analogWrite(5,(7 * 22.5));
+        analogWrite(5,(7 * speed_multiplier));
         digitalWrite(4,HIGH);
-        analogWrite(6,(7 * 22.5));
+        analogWrite(6,(7 * speed_multiplier));
         delay(150);
       }
     } else if (Right_Distance < D_mix && Left_Distance < D_mix) {
       digitalWrite(2,HIGH);
       analogWrite(5,0);
       digitalWrite(4,LOW);
-      analogWrite(6,(9 * 22.5));
+      analogWrite(6,(9 * speed_multiplier));
       delay(250);
       digitalWrite(2,LOW);
       analogWrite(5,0);
@@ -128,9 +129,9 @@ void Infrared_Obstacle_Avoidance() {
     analogWrite(6,90);
   } else {
     digitalWrite(2,HIGH);
-    analogWrite(5,(4 * 22.5));
+    analogWrite(5,(4 * speed_multiplier));
     digitalWrite(4,LOW);
-    analogWrite(6,(4 * 22.5));
+    analogWrite(6,(4 * speed_multiplier));
 
   }
 }
