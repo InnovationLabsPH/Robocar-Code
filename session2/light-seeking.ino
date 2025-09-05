@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 volatile float Left_photosensitive;
 volatile float Right_photosensitive;
 volatile int Lightseeking_Degree;

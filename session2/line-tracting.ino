@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 // Define constants
 const int BLACK = 1;  // Black line returns HIGH (1)
 const int WHITE = 0;  // White surface returns LOW (0)

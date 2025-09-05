@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 // Motor A pins
 const int in1 = 2;
 const int enA = 5;
