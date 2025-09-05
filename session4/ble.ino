@@ -4,7 +4,6 @@
 String G_Bluetooth_value;
 volatile int BLE_Change_SPEED;
 int maxSpeed = 60;
-int turnSpeed = 50;
 int speedStep = 10; 
 
 String lastMovementCommand = "S"; 
@@ -27,14 +26,14 @@ void executeMovement(String command, float value) {
     analogWrite(6, (BLE_Change_SPEED / 10) * 22.5);
   } else if (command == "L") {
     digitalWrite(2, LOW);
-    analogWrite(5, (turnSpeed / 10) * 11.25);
+    analogWrite(5, (maxSpeed / 10) * 11.25);
     digitalWrite(4, LOW);
-    analogWrite(6, (turnSpeed / 10) * 11.25);
+    analogWrite(6, (maxSpeed / 10) * 11.25);
   } else if (command == "R") {
     digitalWrite(2, HIGH);
-    analogWrite(5, (turnSpeed / 10) * 11.25);
+    analogWrite(5, (maxSpeed / 10) * 11.25);
     digitalWrite(4, HIGH);
-    analogWrite(6, (turnSpeed / 10) * 11.25);
+    analogWrite(6, (maxSpeed / 10) * 11.25);
   } else if (command == "FL") {
     digitalWrite(2, HIGH);
     analogWrite(5, (BLE_Change_SPEED / 10) * 11.25); 
@@ -90,7 +89,7 @@ void loop(){
       return;
     } else if (cmd.startsWith("TURN:")) {
       int val = cmd.substring(5).toInt();
-      if (val >= 0 && val <= 100) turnSpeed = val;
+      if (val >= 0 && val <= 100) maxSpeed = val;
       G_Bluetooth_value = "";
       return;
     } else if (cmd.startsWith("STEP:")) {
