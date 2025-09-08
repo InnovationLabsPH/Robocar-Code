@@ -104,7 +104,7 @@ Most LAFVIN-branded Arduino boards use the **CH340** USB-to-serial converter. To
 
 ## 3. Uploading the Code
 
-1. Go to the folder e.g. `session1` and open the `.ino` file
+1. Go to the folder e.g. `session1/code` and open the `.ino` file
    ![Upload Code](docs/images/github_folder.png)
 1. Download or simply copy the code
    ![Upload Code](docs/images/github_download.png)
