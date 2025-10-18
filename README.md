@@ -58,15 +58,16 @@ Welcome to the **Robocar Session Codes**! This repository contains all the code 
 
 Most LAFVIN-branded Arduino boards use the **CH340** USB-to-serial converter. To allow your computer to communicate with the board:
 
-###### Method 1:
+#### Method 1:
 
 1. Download the [CH340 Driver](https://sparks.gogo.co.nz/ch340.html?srsltid=AfmBOoo-VpLzg2QWFC9j2-Dvp2VMOiS8vyg5S5UUTKyQdNNLjJ0RnwBa) and extract the folder to a known location on your computer.
    ![CH340 Chip on Arduino](docs/images/ch340_download.png)
 1. Open the installer and install.
-
+   ![DriverEXE](docs/images/DriverEXE.png)
+   ![DriverSetup](docs/images/DriverSetup.png)
    (You may need to restart you laptop after installation)
 
-###### Method 2: (if method 1 didn't work)
+#### Method 2: (if method 1 didn't work)
 
 1. Download the [CH340/CH341 Driver](https://www.wch-ic.com/downloads/ch341ser_zip.html) and extract the folder to a known location on your computer.
 2. Plug your Arduino board into your computer via USB.
